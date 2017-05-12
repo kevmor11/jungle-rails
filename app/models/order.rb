@@ -11,4 +11,9 @@ class Order < ActiveRecord::Base
     line_items.sum(:total_price_cents)
   end
 
+  def cart_is_empty
+    if cart.size > 0
+    end
+  end
+
 end
