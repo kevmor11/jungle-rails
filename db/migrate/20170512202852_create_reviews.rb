@@ -6,7 +6,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :description
       t.integer :rating
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

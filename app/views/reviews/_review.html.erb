@@ -1,0 +1,19 @@
+<div class="col-sm-8">
+  <p>
+    <% if @product.reviews.count.zero? %>
+      <p class="review">There is no reviews yet!</p>
+    <% end %>
+  </p>
+  <dt>User</dt>
+  <dd>
+    <%= review.user.name %>
+  </dd>
+  <dt>Description</dt>
+  <dd class="description">
+    <%= review.description %>
+  </dd>
+  <dt>Rating</dt>
+  <dd class="rating">
+    <%= review.rating %>/5
+  </dd>
+</div>
