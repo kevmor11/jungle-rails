@@ -35,28 +35,29 @@
           </dd>
         </dl>
       </div>
+      <% if current_user %>
+        <%= form_for ([@product, @review]) do |review| %>
+          <div class="review-form">
+            <div class="field">
+              <%= review.label :description %>
+              <%= review.text_area :description %>
+            </div>
+            <div class="field">
+              <%= review.label :rating %>
+              <%= review.select :rating, ((1..5).map {|i| [i,i] }) %>
+            </div>
+            <div>
+              <%= review.submit %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <h4 class="col-sm-8">Reviews</h4>
           <%= render @product.reviews.reverse %>
         </dl>
-        <% if current_user %>
-        <%= form_for ([@product, @review]) do |review| %>
-          <div class="field">
-            <%= review.label :description %>
-              <%= review.text_area :description %>
-          </div>
-          <div class="field">
-            <%= review.label :rating %>
-              <%= review.select :rating, ((1..5).map {|i| [i,i] }) %>
-          </div>
-          <div>
-            <%= review.submit %>
-          </div>
-        <% end %>
-        <% end %>
       </div>
-    </div>
     </div>
 
   </article>
