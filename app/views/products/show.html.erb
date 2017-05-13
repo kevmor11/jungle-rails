@@ -1,7 +1,10 @@
 <section class="products-show">
 
   <header class="page-header">
-    <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
+    <h1>
+      <%= link_to @product.category.name, @product.category %> &raquo;
+        <%= @product.name %>
+    </h1>
   </header>
 
   <article class="product-detail">
@@ -15,13 +18,44 @@
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
-          <dd><%= @product.name %></dd>
+          <dd>
+            <%= @product.name %>
+          </dd>
           <dt>Description</dt>
-          <dd><%= @product.description %></dd>
+          <dd>
+            <%= @product.description %>
+          </dd>
           <dt>Quantity</dt>
-          <dd><%= @product.quantity %></dd>
+          <dd>
+            <%= @product.quantity %>
+          </dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
+          <dd>
+            <%= @product.price %>
+          </dd>
+        </dl>
+      </div>
+      <% if current_user %>
+        <%= form_for ([@product, @review]) do |review| %>
+          <div class="review-form">
+            <div class="field">
+              <%= review.label :description %>
+              <%= review.text_area :description %>
+            </div>
+            <div class="field">
+              <%= review.label :rating %>
+              <%= review.select :rating, ((1..5).map {|i| [i,i] }) %>
+            </div>
+            <div>
+              <%= review.submit %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <h4 class="col-sm-8">Reviews</h4>
+          <%= render @product.reviews.reverse %>
         </dl>
       </div>
     </div>
