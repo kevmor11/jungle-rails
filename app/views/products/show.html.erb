@@ -44,7 +44,7 @@
         <%= form_for ([@product, @review]) do |review| %>
           <div class="field">
             <%= review.label :description %>
-              <%= review.text_field :description %>
+              <%= review.text_area :description %>
           </div>
           <div class="field">
             <%= review.label :rating %>
