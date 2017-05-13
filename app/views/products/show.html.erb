@@ -38,8 +38,9 @@
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <h4 class="col-sm-8">Reviews</h4>
-          <%= render @product.reviews %>
+          <%= render @product.reviews.reverse %>
         </dl>
+        <% if current_user %>
         <%= form_for ([@product, @review]) do |review| %>
           <div class="field">
             <%= review.label :description %>
@@ -52,7 +53,8 @@
           <div>
             <%= review.submit %>
           </div>
-          <% end %>
+        <% end %>
+        <% end %>
       </div>
     </div>
     </div>

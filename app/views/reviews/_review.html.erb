@@ -16,4 +16,7 @@
   <dd class="rating">
     <%= review.rating %>/5
   </dd>
+  <% if current_user == review.user %>
+  <%= button_to "delete", product_review_path(review.product_id, review.id), :method => :delete %>
+  <% end %>
 </div>
