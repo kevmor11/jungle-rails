@@ -79,6 +79,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = false
 
-  config.secret_token = ENV[“SECRET_TOKEN”]
-  config.secret_key_base = ENV[“SECRET_KEY_BASE”]
+  config.secret_token = ENV["SECRET_TOKEN"]
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 end
