@@ -2,8 +2,8 @@
 
 <%= form_tag '/login' do %>
 
-  Email: <%= text_field_tag :email, nil, :class => 'signup' %>
-  Password: <%= password_field_tag :password, nil, :class => 'signup' %>
+  Email: <%= text_field_tag :email, nil, :class => 'signup', :for => 'email' %>
+  Password: <%= password_field_tag :password, nil, :class => 'signup', :for => 'password' %>
   <%= submit_tag "Submit", :class => 'signup' %>
 
 <% end %>
