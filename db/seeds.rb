@@ -143,6 +143,7 @@ u = User.create!({
   name: "Kevin",
   email: "morissette.kevin@gmail.com",
   password: "password",
+  confirmation_pasword: "password",
 })
 
 puts "Re-creating Reviews ..."
