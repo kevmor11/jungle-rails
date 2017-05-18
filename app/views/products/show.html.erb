@@ -35,8 +35,22 @@
           </dd>
         </dl>
       </div>
+    </div>
+
+    <div class="row">
       <% if current_user %>
         <%= form_for ([@product, @review]) do |review| %>
+          <% if @review.errors.any? %>
+            <div class="alert alert-danger">
+              <strong>The following errors prevented saving:</strong>
+              <ul>
+                <% @review.errors.full_messages.each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
           <div class="review-form">
             <div class="field">
               <%= review.label :description %>

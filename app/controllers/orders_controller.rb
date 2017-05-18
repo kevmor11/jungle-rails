@@ -57,8 +57,7 @@ class OrdersController < ApplicationController
     if order.save!
       respond_to do |format|
         # Tell the UserMailer to send a welcome email after save
-        puts "------- ${order}"
-        UserMailer.welcome_email(current_user, order).deliver_now
+        UserMailer.order_email(current_user, order).deliver_now
 
         format.html { redirect_to(order, notice: 'Order placed successfully.') }
         format.json { render json: order, status: :created, location: order }
